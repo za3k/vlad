@@ -148,14 +148,15 @@ class Vlad
     def remail_summaries
         me = self
         common_body = summarize latest_unprocessed_reports
-        users.map do |user|
-            summary = Mail.new
-            summary.from = email
-            summary.to = user.canonical_email
-            summary.subject = "VladTheRemailer Summary"
-            summary.body = common_body
-            summary
+        emails = users.map do |user|
+            user.canonical_email
         end
+        summary = Mail.new
+        summary.from = email
+        summary.to = emails
+        summary.subject = "VladTheRemailer Summary"
+        summary.body = common_body
+        summary
     end
 
     def unprocessed_emails
