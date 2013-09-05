@@ -1,0 +1,9 @@
+To install vlad:
+
+1. Drop him somewhere
+2. Change the list of email addresses to target
+3. Run 'bundle install'
+4. Edit crontab.  --solicit is the email requesting responses.  --summary is the email for sending out the responses after they're received.  Picking a good time of day for each is important.  (I like to send out the summary before anyone is awake, but the "solicit" email is trickier to decide)
+    0  2 * * * /usr/bin/ruby ~vlad/vlad.rb --solicit
+    0 12 * * * /usr/bin/ruby ~vlad/vlad.rb --summary
+5. You're done.
