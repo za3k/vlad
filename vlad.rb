@@ -84,7 +84,7 @@ class Vlad
             delivery_method :smtp, smtp_options
         end
 
-        @users = [ User.new("vanceza@gmail.com") ]
+        @users = [ User.new("vanceza@gmail.com"), User.new("steven0461@gmail.com") ]
     end
 
     def today
@@ -102,7 +102,7 @@ class Vlad
     def report_requests
         users.map do |user|
             report_request = Mail.new
-            report_request[:subject] = "What did you do today? #{user.format_date today}"
+            report_request[:subject] = "Vat did you do today? #{user.format_date today}"
             report_request[:from] = email
             report_request[:to] = user.canonical_email
             #yesterdays_reports = "<NOT DONE>"
@@ -111,9 +111,9 @@ class Vlad
                 Hey #{user.display_name},
 
 
-                What did you do today (#{user.format_date today})?
+                Vat did you do today (#{user.format_date today})?
 
-                Work, chores, coding, conversations, anything... or nothing.  Just reply to this email and VladTheRemailer will will send out a compilation tomorrow morning.
+                Vork, chores, coding, conversations, anything... or nothing.  Just reply to this email and VladTheRemailer vill send out a compilation tomorrow morning.
 
                 - Vlad The Remailer
                 EMAIL
@@ -153,10 +153,11 @@ class Vlad
         end
         summary = Mail.new
         summary.from = email
+	puts emails
         summary.to = emails
         summary.subject = "VladTheRemailer Summary"
         summary.body = common_body
-        summary
+        [summary]
     end
 
     def unprocessed_emails
