@@ -1,5 +1,9 @@
-To install vlad:
+## What is Vlad?
+Vlad (the remailer) is a team productivity tool closely based on a similar system at Google. Once a day, Vlad emails everyone in the group, asking what they did. The next morning, he sends an email to the group with what everyone did.
 
+I found this tool very useful to my productivity. It holds you accountable, and helps your organize your thoughts on how long-term tasks are going.
+
+## To install vlad
 1. Drop him somewhere
 2. Change the list of email addresses to target
 3. Run 'bundle install'
