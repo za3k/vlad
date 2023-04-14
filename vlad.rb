@@ -66,17 +66,19 @@ end
 class Vlad
     def initialize
         me = self
-        smtp_options = {:address              => "smtp.gmail.com",
+        smtp_options = {:address              => "smtp.office365.com",
                         :port                 => 587,
                         :domain               => 'gmail.com',
                         :user_name            => me.username,
                         :password             => me.password,
-                        :authentication       => 'plain',
+                        :authentication       => 'login',
+			:read_timeout         => 10,
+			:open_timeout         => 10,
                         :enable_starttls_auto => true  
         }
 
         Mail.defaults do
-            retriever_method :pop3, :address    => "pop.gmail.com",
+            retriever_method :pop3, :address    => "outlook.office365.com",
                                     :port       => 995,
                                     :user_name  => me.username,
                                     :password   => me.password,
@@ -84,7 +86,7 @@ class Vlad
             delivery_method :smtp, smtp_options
         end
 
-        @users = [ User.new("vanceza@gmail.com"), User.new("steven0461@gmail.com") ]
+        @users = [ User.new("aaaa@gmail.com"), User.new("bbbbb@gmail.com") ]
     end
 
     def today
@@ -193,10 +195,10 @@ class Vlad
     end
 
     def email
-        "Vlad the Remailer <vlad.the.remailer@gmail.com>"
+        "Vlad the Remailer <vlad.the.remailer@outlook.com>"
     end
     def username
-        "vlad.the.remailer@gmail.com"
+        "vlad.the.remailer@outlook.com"
     end
     def password
         "remailerpassword"
