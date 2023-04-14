@@ -2,7 +2,7 @@ require 'mail'
 require 'pp'
 require 'pstore'
 require 'dedent'
-require 'trollop'
+require 'optimist'
 
 class Array
     def only
@@ -224,7 +224,7 @@ class Vlad
 end
 
 vlad = Vlad.new
-opts = Trollop::options do
+opts = Optimist::options do
     opt :solicit, "Send out the daily reminders to submit reports"
     opt :summary, "Send out the daily summary of yesterday's reports"
 end
